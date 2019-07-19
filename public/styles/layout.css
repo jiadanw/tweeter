@@ -18,8 +18,142 @@ body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
+  font-family: 'Source Sans Pro', sans-serif;
+  padding-top:120px;
+
+}
+.container {
+  color: #545149;
+  background-color:#f4f1ec;
+  display: block;
+  /* margin-left: auto;
+  margin-right: auto; */
+  font-size: 24px;
+  font-family: 'Source Sans Pro', sans-serif;
+  width: 70%;
+  height: 1000px;
+  
+  
 }
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+.container1{
+  color: #545149;
+  background-color:#f4f1ec;
+  display: block;
+  margin-top: 80px;
+  /* margin-left: auto;
+  margin-right: auto; */
+  font-size: 24px;
+  font-family: 'Source Sans Pro', sans-serif;
+  /* width: 60%; */
+  min-height: 120px;
+  border-style: solid;
+
+}
+.container1:hover{
+  box-shadow: 10px 10px 5px #aaaaaa
+}
+.container1:hover .tweet-handle {
+  display:inline-block;
+  color: gray;
+}
+.tweet-handle {
+  display: none;
+  margin-left: auto;
+  margin-right: 10px;
+}
+.FirstT {
+  width: 100%; 
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: initial;
+}
+
+.tweet-header {
+  display: flex;
+  align-items: center;
+}
+.tweet-username {
+  display: inline-block;
+  margin: 0;
+}
+
+.line { 
+  width: 95%; 
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 3px solid #545149; 
+}
+.tweet-date {
+  color: #545149;
+  padding-left: 2%;
+  font-size: 15px;
+  font-family: 'Source Sans Pro', sans-serif;
+
+}
+/* .flag { 
+  margin-left: 95%;
+  flex-direction: row;
+} */
+#icons {
+  float:right;
+  position: relative;
+  bottom: 25px;
+  right: 30px;
+}
+.container0 {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  border: 3px solid red;
+  font-size: 20px;
+  opacity:1;
+  transition:opacity 500ms
+}
+
+
+.row {
+  display: flex;
+  flex-direction: column;
+  float: left;
+  width: 30%;
+}
+
+.column {
+  padding-top: 20px;
+  float:right;
+  width:60%
+ 
+}
+
+
+@media only screen and (max-width: 800px) {
+  .row, .column {
+    width:100%;
+  }
+  body .fixed-top {
+    background-color:#00ba2b;
+    background-image: url("https://www.transparenttextures.com/patterns/food.png");
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    height:120px;
+  }
+
+ 
+}
+.fixed-top {
+  background-color:#4056A1;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  height:120px;
+}
+

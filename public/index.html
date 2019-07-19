@@ -3,30 +3,71 @@
   <head>
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
-
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
     <!-- External CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Source+Sans+Pro:300,300i,700,700i&display=swap" rel="stylesheet">
+    
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
   </head>
 
   <body>
 
     <!-- Top nav bar (fixed) -->
-    <nav>
-      <span>tweeter</span>
+    <nav class="fixed-top">
+      <span class="navbar-brand" > tweeter</span>
+      <div  class="write-tweet"><b>Write</b> a new Tweet
+        <img class="double-arrow" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIKdmlld0JveD0iMCAwIDE3MiAxNzIiCnN0eWxlPSIgZmlsbDojMDAwMDAwOyI+PGcgdHJhbnNmb3JtPSIiPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1kYXNoYXJyYXk9IiIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjAiIGZvbnQtZmFtaWx5PSJub25lIiBmb250LXdlaWdodD0ibm9uZSIgZm9udC1zaXplPSJub25lIiB0ZXh0LWFuY2hvcj0ibm9uZSIgc3R5bGU9Im1peC1ibGVuZC1tb2RlOiBub3JtYWwiPjxwYXRoIGQ9Ik0wLDE3MnYtMTcyaDE3MnYxNzJ6IiBmaWxsPSJub25lIj48L3BhdGg+PHBhdGggZD0iIiBmaWxsPSJub25lIj48L3BhdGg+PHBhdGggZD0iTTAsMTcydi0xNzJoMTcydjE3MnoiIGZpbGw9Im5vbmUiPjwvcGF0aD48cGF0aCBkPSJNMy40NCwxNjguNTZ2LTE2NS4xMmgxNjUuMTJ2MTY1LjEyeiIgZmlsbD0ibm9uZSI+PC9wYXRoPjxwYXRoIGQ9Ik04NiwxNzJjLTQ3LjQ5NjQ5LDAgLTg2LC0zOC41MDM1MSAtODYsLTg2djBjMCwtNDcuNDk2NDkgMzguNTAzNTEsLTg2IDg2LC04NnYwYzQ3LjQ5NjQ5LDAgODYsMzguNTAzNTEgODYsODZ2MGMwLDQ3LjQ5NjQ5IC0zOC41MDM1MSw4NiAtODYsODZ6IiBmaWxsPSJub25lIj48L3BhdGg+PHBhdGggZD0iTTg2LDE2OC41NmMtNDUuNTk2NjMsMCAtODIuNTYsLTM2Ljk2MzM3IC04Mi41NiwtODIuNTZ2MGMwLC00NS41OTY2MyAzNi45NjMzNywtODIuNTYgODIuNTYsLTgyLjU2djBjNDUuNTk2NjMsMCA4Mi41NiwzNi45NjMzNyA4Mi41Niw4Mi41NnYwYzAsNDUuNTk2NjMgLTM2Ljk2MzM3LDgyLjU2IC04Mi41Niw4Mi41NnoiIGZpbGw9Im5vbmUiPjwvcGF0aD48cGF0aCBkPSJNMCwxNzJ2LTE3MmgxNzJ2MTcyeiIgZmlsbD0ibm9uZSI+PC9wYXRoPjxwYXRoIGQ9Ik0zLjQ0LDE2OC41NnYtMTY1LjEyaDE2NS4xMnYxNjUuMTJ6IiBmaWxsPSJub25lIj48L3BhdGg+PHBhdGggZD0iTTg2LDE3MmMtNDcuNDk2NDksMCAtODYsLTM4LjUwMzUxIC04NiwtODZ2MGMwLC00Ny40OTY0OSAzOC41MDM1MSwtODYgODYsLTg2djBjNDcuNDk2NDksMCA4NiwzOC41MDM1MSA4Niw4NnYwYzAsNDcuNDk2NDkgLTM4LjUwMzUxLDg2IC04Niw4NnoiIGZpbGw9Im5vbmUiPjwvcGF0aD48cGF0aCBkPSJNODYsMTY4LjU2Yy00NS41OTY2MywwIC04Mi41NiwtMzYuOTYzMzcgLTgyLjU2LC04Mi41NnYwYzAsLTQ1LjU5NjYzIDM2Ljk2MzM3LC04Mi41NiA4Mi41NiwtODIuNTZ2MGM0NS41OTY2MywwIDgyLjU2LDM2Ljk2MzM3IDgyLjU2LDgyLjU2djBjMCw0NS41OTY2MyAtMzYuOTYzMzcsODIuNTYgLTgyLjU2LDgyLjU2eiIgZmlsbD0ibm9uZSI+PC9wYXRoPjxwYXRoIGQ9IiIgZmlsbD0ibm9uZSI+PC9wYXRoPjxnPjxwYXRoIGQ9Ik0xMzUuODgsOTYuMzJ2LTIyLjM2bC00OS44OCw0OS44OGwtNDkuODgsLTQ5Ljg4djIyLjM2bDQ5Ljg4LDQ5Ljg4eiIgZmlsbD0iI2U3NGMzYyI+PC9wYXRoPjxwYXRoIGQ9Ik04NiwxNDcuOTJjLTAuNDQwMzIsMCAtMC44ODA2NCwtMC4xNjg1NiAtMS4yMTYwNCwtMC41MDM5NmwtNDkuODgsLTQ5Ljg4Yy0wLjMyMzM2LC0wLjMyMTY0IC0wLjUwMzk2LC0wLjc1ODUyIC0wLjUwMzk2LC0xLjIxNjA0di0yMi4zNmMwLC0wLjY5NDg4IDAuNDE3OTYsLTEuMzI0NCAxLjA2MTI0LC0xLjU4OTI4YzAuNjQ1LC0wLjI2NDg4IDEuMzgyODgsLTAuMTE4NjggMS44NzQ4LDAuMzczMjRsNDguNjYzOTYsNDguNjYzOTZsNDguNjYzOTYsLTQ4LjY2Mzk2YzAuNDkxOTIsLTAuNDkxOTIgMS4yMjk4LC0wLjYzOTg0IDEuODc0OCwtMC4zNzMyNGMwLjY0MzI4LDAuMjY0ODggMS4wNjEyNCwwLjg5NDQgMS4wNjEyNCwxLjU4OTI4djIyLjM2YzAsMC40NTc1MiAtMC4xODA2LDAuODk0NCAtMC41MDM5NiwxLjIxNjA0bC00OS44OCw0OS44OGMtMC4zMzU0LDAuMzM1NCAtMC43NzU3MiwwLjUwMzk2IC0xLjIxNjA0LDAuNTAzOTZ6TTM3Ljg0LDk1LjYwNzkybDQ4LjE2LDQ4LjE2bDQ4LjE2LC00OC4xNnYtMTcuNDk1ODRsLTQ2Ljk0Mzk2LDQ2Ljk0Mzk2Yy0wLjY3MjUyLDAuNjcyNTIgLTEuNzU5NTYsMC42NzI1MiAtMi40MzIwOCwwbC00Ni45NDM5NiwtNDYuOTQzOTZ6IiBmaWxsPSIjMWYyMTJiIj48L3BhdGg+PHBhdGggZD0iTTg2LDEzNy42Yy0wLjIyMDE2LDAgLTAuNDQwMzIsLTAuMDg0MjggLTAuNjA4ODgsLTAuMjUxMTJsLTIuNTgsLTIuNThjLTAuMzM1NCwtMC4zMzU0IC0wLjMzNTQsLTAuODgwNjQgMCwtMS4yMTYwNGMwLjMzNTQsLTAuMzM1NCAwLjg4MDY0LC0wLjMzNTQgMS4yMTYwNCwwbDIuNTgsMi41OGMwLjMzNTQsMC4zMzU0IDAuMzM1NCwwLjg4MDY0IDAsMS4yMTYwNGMtMC4xNjY4NCwwLjE2Njg0IC0wLjM4NywwLjI1MTEyIC0wLjYwNzE2LDAuMjUxMTJ6TTc5LjEyLDEzMC43MmMtMC4yMjAxNiwwIC0wLjQ0MDMyLC0wLjA4NDI4IC0wLjYwODg4LC0wLjI1MTEybC02LjAyLC02LjAyYy0wLjMzNTQsLTAuMzM1NCAtMC4zMzU0LC0wLjg4MDY0IDAsLTEuMjE2MDRjMC4zMzU0LC0wLjMzNTQgMC44ODA2NCwtMC4zMzU0IDEuMjE2MDQsMGw2LjAyLDYuMDJjMC4zMzU0LDAuMzM1NCAwLjMzNTQsMC44ODA2NCAwLDEuMjE2MDRjLTAuMTY2ODQsMC4xNjY4NCAtMC4zODcsMC4yNTExMiAtMC42MDcxNiwwLjI1MTEyek05NS40NiwxMjguMTRjLTAuMjIwMTYsMCAtMC40NDAzMiwtMC4wODQyOCAtMC42MDg4OCwtMC4yNTExMmMtMC4zMzU0LC0wLjMzNTQgLTAuMzM1NCwtMC44ODA2NCAwLC0xLjIxNjA0bDI5LjI0LC0yOS4yNGMwLjMzNTQsLTAuMzM1NCAwLjg4MDY0LC0wLjMzNTQgMS4yMTYwNCwwYzAuMzM1NCwwLjMzNTQgMC4zMzU0LDAuODgwNjQgMCwxLjIxNjA0bC0yOS4yNCwyOS4yNGMtMC4xNjY4NCwwLjE2Njg0IC0wLjM4NywwLjI1MTEyIC0wLjYwNzE2LDAuMjUxMTJ6TTYzLjY0LDExNS4yNGMtMC4yMjAxNiwwIC0wLjQ0MDMyLC0wLjA4NDI4IC0wLjYwODg4LC0wLjI1MTEybC0xNi4zNCwtMTYuMzRjLTAuMzM1NCwtMC4zMzU0IC0wLjMzNTQsLTAuODgwNjQgMCwtMS4yMTYwNGMwLjMzNTQsLTAuMzM1NCAwLjg4MDY0LC0wLjMzNTQgMS4yMTYwNCwwbDE2LjM0LDE2LjM0YzAuMzM1NCwwLjMzNTQgMC4zMzU0LDAuODgwNjQgMCwxLjIxNjA0Yy0wLjE2Njg0LDAuMTY2ODQgLTAuMzg3LDAuMjUxMTIgLTAuNjA3MTYsMC4yNTExMnoiIGZpbGw9IiMxZjIxMmIiPjwvcGF0aD48cGF0aCBkPSJNMTM1Ljg4LDQ4LjE2di0yMi4zNmwtNDkuODgsNDkuODhsLTQ5Ljg4LC00OS44OHYyMi4zNmw0OS44OCw0OS44OHoiIGZpbGw9IiNlNzRjM2MiPjwvcGF0aD48cGF0aCBkPSJNODYsOTkuNzZjLTAuNDQwMzIsMCAtMC44ODA2NCwtMC4xNjg1NiAtMS4yMTYwNCwtMC41MDM5NmwtNDkuODgsLTQ5Ljg4Yy0wLjMyMzM2LC0wLjMyMTY0IC0wLjUwMzk2LC0wLjc1ODUyIC0wLjUwMzk2LC0xLjIxNjA0di0yMi4zNmMwLC0wLjY5NDg4IDAuNDE3OTYsLTEuMzI0NCAxLjA2MTI0LC0xLjU4OTI4YzAuNjQ1LC0wLjI2NjYgMS4zODI4OCwtMC4xMTg2OCAxLjg3NDgsMC4zNzMyNGw0OC42NjM5Niw0OC42NjM5Nmw0OC42NjM5NiwtNDguNjYzOTZjMC40OTE5MiwtMC40OTM2NCAxLjIyOTgsLTAuNjQxNTYgMS44NzQ4LC0wLjM3MzI0YzAuNjQzMjgsMC4yNjQ4OCAxLjA2MTI0LDAuODk0NCAxLjA2MTI0LDEuNTg5Mjh2MjIuMzZjMCwwLjQ1NzUyIC0wLjE4MDYsMC44OTQ0IC0wLjUwMzk2LDEuMjE2MDRsLTQ5Ljg4LDQ5Ljg4Yy0wLjMzNTQsMC4zMzU0IC0wLjc3NTcyLDAuNTAzOTYgLTEuMjE2MDQsMC41MDM5NnpNMzcuODQsNDcuNDQ3OTJsNDguMTYsNDguMTZsNDguMTYsLTQ4LjE2di0xNy40OTU4NGwtNDYuOTQzOTYsNDYuOTQzOTZjLTAuNjcyNTIsMC42NzI1MiAtMS43NTk1NiwwLjY3MjUyIC0yLjQzMjA4LDBsLTQ2Ljk0Mzk2LC00Ni45NDM5NnoiIGZpbGw9IiMxZjIxMmIiPjwvcGF0aD48cGF0aCBkPSJNODYsODkuNDRjLTAuMjIwMTYsMCAtMC40NDAzMiwtMC4wODQyOCAtMC42MDg4OCwtMC4yNTExMmwtMzguNywtMzguN2MtMC4zMzU0LC0wLjMzNTQgLTAuMzM1NCwtMC44ODA2NCAwLC0xLjIxNjA0YzAuMzM1NCwtMC4zMzU0IDAuODgwNjQsLTAuMzM1NCAxLjIxNjA0LDBsMzguMDkyODQsMzguMDkxMTJsMzguMDkxMTIsLTM4LjA5MTEyYzAuMzM1NCwtMC4zMzU0IDAuODgwNjQsLTAuMzM1NCAxLjIxNjA0LDBjMC4zMzU0LDAuMzM1NCAwLjMzNTQsMC44ODA2NCAwLDEuMjE2MDRsLTM4LjcsMzguN2MtMC4xNjY4NCwwLjE2Njg0IC0wLjM4NywwLjI1MTEyIC0wLjYwNzE2LDAuMjUxMTJ6IiBmaWxsPSIjMWYyMTJiIj48L3BhdGg+PC9nPjwvZz48L2c+PC9zdmc+">
+      </div>
     </nav>
+    <header class="row">
+      
+        <div class= "picture"> 
+            <img src="/images/profile-hex.png" >   
+        </div>
+        <br>
+        <div>
+            <h2> <b> Jiadan </b>W</h2>
+        </div>
+      
+    </header>
+    <div class="column">
+      <!-- Page-specific (main) content here -->
+      <div class="container0"> <img src= "https://png.pngtree.com/svg/20170706/3d9a32a59e.svg" style="height:20px"> Error, tweet should not be empty or over the limit of 140<img src= "https://png.pngtree.com/svg/20170706/3d9a32a59e.svg" style="height:20px"></div>
+      <main class="container">
+          <div>
 
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-    </main>
+              <section class="new-tweet">
+                  <h2 class="tweetText"></h2>
+                  <form id="new-tweet">
+                    <textarea class="tweetForm" name="text" placeholder="What are you humming about?"></textarea>
+                    <button type="submit" class="tweetBotton">Tweet</button>
+                    <span class="counter">140</span>
+                  </form>
+                </section>
 
+          </div>
+        
+          <div id="tweets-container" >
+        
+          </div>
+        </main>
+      </div>
+        
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+     <script src="scripts/composer-char-counter.js"></script>
   </body>
 </html>
+
+
