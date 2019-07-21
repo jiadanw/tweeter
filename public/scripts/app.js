@@ -15,7 +15,7 @@ $(document).ready(function() {
     $tweet.html(`
               <div class="container1">
               <div class="tweet-header">
-            <img src=${tweet.user.avatars} style="width: 35px">
+            <img class="avatar" src=${tweet.user.avatars} style="width: 35px">
             <h6 class="tweet-username">${tweet.user.name}</h6>
             <div class="tweet-handle">${tweet.user.handle}</div>
           </div>
