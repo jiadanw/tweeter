@@ -10,10 +10,6 @@ html {
   box-sizing: inherit;
 }
 
-/*
- * Global layout stuff
- */
-
 body {
   color: #545149;
   background-color: #f4f1ec;
@@ -26,11 +22,9 @@ body {
   color: #545149;
   background-color:#f4f1ec;
   display: block;
-  /* margin-left: auto;
-  margin-right: auto; */
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
-  width: 70%;
+  width: 80%;
   height: 1000px;
   margin-left: 20px;
   
@@ -42,11 +36,8 @@ body {
   background-color:#f4f1ec;
   display: block;
   margin-top: 80px;
-  /* margin-left: auto;
-  margin-right: auto; */
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
-  /* width: 60%; */
   min-height: 120px;
   border-style: solid;
   margin-left: 20px;
@@ -97,10 +88,7 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
 
 }
-/* .flag { 
-  margin-left: 95%;
-  flex-direction: row;
-} */
+
 #icons {
   float:right;
   position: relative;
@@ -127,7 +115,10 @@ body {
   flex-direction: column;
   float: left;
   width: 30%;
+  margin-left: 20px;
+  margin-top: 20px;
 }
+
 
 .column {
   padding-top: 20px;
@@ -140,6 +131,13 @@ body {
 @media only screen and (max-width: 800px) {
   .row, .column {
     width:100%;
+  }
+  .row {
+    display: flex;
+    flex-direction: column;
+    float: left;
+     margin-left: 0px;
+    margin-top: 0px; 
   }
   body .fixed-top {
     background-color:#00ba2b;

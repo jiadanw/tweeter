@@ -1,9 +1,6 @@
 header {
   display: flex;
-  /* float: left; */
-  /* width: 50%; */
   background-color:rgb(64, 161, 72);
-  /* margin-top:120px;  */
   right: 0;
   left: 0;
   height:400px;

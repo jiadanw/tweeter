@@ -36,13 +36,10 @@ $(document).ready(function() {
   }
 
   const renderTweets = function(tweets) {
-    // loops through tweets
     tweets.forEach((tweet)=>{
-       // calls createTweetElement for each tweet
        const $tweet = createTweetElement(tweet);
       console.log($tweet)
-      // takes return value and appends it to the tweets container
-      $('#tweets-container').append($tweet);
+      $('#tweets-container').prepend($tweet);
     })
    }
 
